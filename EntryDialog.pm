@@ -1,5 +1,5 @@
 package EntryDialog;
-$VERSION=0.6;
+$VERSION=0.7;
 use vars qw($VERSION @EXPORT_OK);
 
 =head1 NAME
@@ -7,6 +7,9 @@ use vars qw($VERSION @EXPORT_OK);
 Tk::EntryDialog - Dialog widget with text entry.
 
 =head1 SYNOPSIS
+
+  use Tk;
+  use Tk::EntryDialog;
 
   $d = $w -> EntryDialog ( -font => '*-helvetica-medium-r-*-*-12-*',
                            -defaultentry => 'Text in entry widget' );
@@ -22,11 +25,9 @@ Tk::EntryDialog - Dialog widget with text entry.
   pressing Enter in the text entry widget, closes the dialog and returns
   the text in the entry box.
 
-  The WaitForEntry method does not destroy the window.  Instead WaitForEntry
-  unmaps the dialog box from the display.  To de-allocate the widget, you
-  must explicitly call $w -> destroy or $w -> DESTROY.
-
-  Refer to the example 
+  The WaitForEntry method does not destroy the dialog window.  Instead 
+  WaitForEntry unmaps the dialog box from the display.  To de-allocate 
+  the widget, you must explicitly call $w -> destroy or $w -> DESTROY.
 
   Refer to the Tk::options man page for a description of the standard 
   Perl/Tk widget options.
@@ -48,7 +49,7 @@ Tk::EntryDialog - Dialog widget with text entry.
 	    $e = $w -> EntryDialog (-title => 'Enter Text');
             $e -> configure (-defaultentry => 'default text');
         }
-        my $resp = $ewidget -> WaitForInput;
+        my $resp = $e -> WaitForInput;
         return $resp;
     }
 
@@ -56,12 +57,12 @@ Tk::EntryDialog - Dialog widget with text entry.
 
 =head1 VERSION
 
-  $Revision: 0.6 $
+  $Revision: 0.7 $
 
   Licensed for free distribution under the terms of the 
   Perl Artistic License.
 
-  Written by Robert Allan Kiesling <rkiesling@mainmatter.com>
+  Written by Robert Allan Kiesling <rkiesling@earthlink.net>
 
 =cut
 
