@@ -1,5 +1,5 @@
 package EntryDialog;
-$VERSION=0.9;
+$VERSION=0.10;
 use vars qw($VERSION @EXPORT_OK);
 
 =head1 NAME
@@ -68,7 +68,7 @@ Tk::EntryDialog - Dialog widget with text entry.
 
 =head1 VERSION
 
-  $Revision: 0.9 $
+  $Revision: 0.10 $
 
   Licensed for free distribution under the terms of the 
   Perl Artistic License.
@@ -157,6 +157,9 @@ sub Populate {
 			    -command => sub{$w -> Cancel},
 			    -default => 'normal' );
   $b2->grid( -column => 4, -row => $row, -padx => 5, -pady => 5, -sticky => 'new' );
+
+  $w -> bind ('<Escape>', sub {$w -> withdraw});
+
   return $w;
 }
 
